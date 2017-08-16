@@ -1,4 +1,4 @@
-using System;
+using Microsoft.CodeAnalysis;
 using Xunit;
 
 namespace XUnitTestProject1
@@ -8,7 +8,9 @@ namespace XUnitTestProject1
         [Fact]
         public void Test1()
         {
-
+            var assembly = typeof(AssemblyIdentity).Assembly;
+            var identity = AssemblyIdentity.FromAssemblyDefinition(assembly);
+            var token = identity.PublicKeyToken;
         }
     }
 }
